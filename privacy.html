@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy &mdash; Agent Tool</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    max-width: 44rem; margin: 0 auto; padding: 3rem 1.5rem 5rem;
+    line-height: 1.65; font-size: 17px;
+  }
+  h1 { font-size: 1.9rem; }
+  h2 { margin-top: 2.3rem; font-size: 1.15rem; }
+  .updated { opacity: .7; margin-top: -.6rem; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .94rem; }
+  th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid rgba(128,128,128,.3); vertical-align: top; }
+  th { font-weight: 600; }
+  code { background: rgba(128,128,128,.15); padding: .1rem .35rem; border-radius: 4px; font-size: .88em; }
+  footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid rgba(128,128,128,.3); opacity: .75; font-size: .92rem; }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p class="updated">Agent Tool &middot; last updated 20 September 2026</p>
+
+<p>
+  Agent Tool is a single-user application operated by Roman Parker. It runs on his
+  own computer and connects only to his own Google account. There are no other
+  users and no hosted service.
+</p>
+
+<h2>Google data it accesses, and why</h2>
+
+<table>
+  <tr><th>Scope</th><th>What it is used for</th></tr>
+  <tr>
+    <td><code>gmail.modify</code></td>
+    <td>Reading messages so the assistant can answer questions about them, and
+        marking them read, archived or labelled when asked.</td>
+  </tr>
+  <tr>
+    <td><code>gmail.send</code></td>
+    <td>Sending mail the user has explicitly asked for and confirmed.</td>
+  </tr>
+  <tr>
+    <td><code>calendar</code></td>
+    <td>Reading the schedule, finding free time, and creating or editing events
+        when asked.</td>
+  </tr>
+  <tr>
+    <td><code>drive</code></td>
+    <td>Finding and reading files the user refers to, and saving documents the
+        assistant creates.</td>
+  </tr>
+  <tr>
+    <td><code>documents</code>, <code>spreadsheets</code>, <code>presentations</code></td>
+    <td>Creating and editing Google Docs, Sheets and Slides at the user's request.</td>
+  </tr>
+  <tr>
+    <td><code>tasks</code></td>
+    <td>Reading and updating the user's task list.</td>
+  </tr>
+  <tr>
+    <td><code>userinfo.email</code> and <code>openid</code></td>
+    <td>Confirming which account is connected, so the assistant can say which
+        mailbox it is reading.</td>
+  </tr>
+</table>
+
+<h2>Where the data goes</h2>
+
+<p>
+  Google data is fetched on demand, used to answer the request in front of it,
+  and not retained beyond what that requires.
+</p>
+
+<ul>
+  <li>
+    <strong>On the user's computer.</strong> Conversation history and the
+    assistant's notes are stored in a local database and local files. Nothing is
+    uploaded to a server operated by this application, because there is no such
+    server.
+  </li>
+  <li>
+    <strong>To language model providers.</strong> To answer a question about an
+    email or a calendar entry, the relevant text is sent to the model that
+    produces the reply: OpenAI for conversation, and Z.ai via OpenRouter for
+    programming tasks. Only the content needed for that request is sent.
+    Providers are configured to zero-data-retention and no-training endpoints
+    where the provider offers them.
+  </li>
+  <li>
+    <strong>Nowhere else.</strong> Google data is not sold, shared, used for
+    advertising, or used to train any model, and is not sent to analytics.
+  </li>
+</ul>
+
+<h2>Speech</h2>
+<p>
+  Speech recognition and speech synthesis run locally on the user's own machine.
+  Audio is not uploaded anywhere.
+</p>
+
+<h2>Retention and deletion</h2>
+<p>
+  Local conversation history and notes persist until the user deletes them, which
+  they can do by removing the application's data directory. Access to the Google
+  account can be revoked at any time from
+  <a href="https://myaccount.google.com/permissions">Google Account permissions</a>,
+  which immediately and permanently ends this application's access. Stored
+  credentials can also be deleted locally.
+</p>
+
+<h2>Limited Use</h2>
+<p>
+  Agent Tool's use of information received from Google APIs adheres to the
+  <a href="https://developers.google.com/terms/api-services-user-data-policy">Google
+  API Services User Data Policy</a>, including the Limited Use requirements.
+</p>
+
+<h2>Contact</h2>
+<p>
+  Questions about this policy:
+  <a href="mailto:romanwalterparker@gmail.com">romanwalterparker@gmail.com</a>.
+</p>
+
+<footer>
+  <a href="/">Agent Tool</a> &middot; <a href="/terms.html">Terms of service</a>
+</footer>
+
+</body>
+</html>
