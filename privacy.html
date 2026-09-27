@@ -25,12 +25,13 @@
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="updated">Agent Tool &middot; last updated 20 September 2026</p>
+<p class="updated">Agent Tool &middot; last updated 27 September 2026</p>
 
 <p>
-  Agent Tool is a single-user application operated by Roman Parker. It runs on his
-  own computer and connects only to his own Google account. There are no other
-  users and no hosted service.
+  Agent Tool is a single-user application operated by Roman Parker for himself.
+  It runs on his own computer, with a small relay server he operates so that he
+  can reach it by message and phone while the computer is asleep. It connects
+  only to his own Google account. There are no other users.
 </p>
 
 <h2>Google data it accesses, and why</h2>
@@ -39,30 +40,33 @@
   <tr><th>Scope</th><th>What it is used for</th></tr>
   <tr>
     <td><code>gmail.modify</code></td>
-    <td>Reading messages so the assistant can answer questions about them, and
-        marking them read, archived or labelled when asked.</td>
+    <td>Reading messages so the assistant can answer questions about them and
+        point out ones that need his attention, and marking them read, archived
+        or labelled when asked.</td>
   </tr>
   <tr>
     <td><code>gmail.send</code></td>
-    <td>Sending mail the user has explicitly asked for and confirmed.</td>
+    <td>Sending mail he has explicitly asked for and confirmed. Nothing is sent
+        without his yes.</td>
   </tr>
   <tr>
     <td><code>calendar</code></td>
-    <td>Reading the schedule, finding free time, and creating or editing events
-        when asked.</td>
+    <td>Reading the schedule for questions, briefings and reminders, finding free
+        time, and creating or editing events when asked.</td>
   </tr>
   <tr>
     <td><code>drive</code></td>
-    <td>Finding and reading files the user refers to, and saving documents the
-        assistant creates.</td>
+    <td>Finding and reading files he refers to, noticing recently changed ones,
+        and saving documents the assistant creates.</td>
   </tr>
   <tr>
     <td><code>documents</code>, <code>spreadsheets</code>, <code>presentations</code></td>
-    <td>Creating and editing Google Docs, Sheets and Slides at the user's request.</td>
+    <td>Creating and editing Google Docs, Sheets and Slides at his request.</td>
   </tr>
   <tr>
     <td><code>tasks</code></td>
-    <td>Reading and updating the user's task list.</td>
+    <td>Keeping his Google Tasks list in step with the things he has asked to be
+        reminded of, and reading back which ones he has ticked off.</td>
   </tr>
   <tr>
     <td><code>userinfo.email</code> and <code>openid</code></td>
@@ -73,25 +77,37 @@
 
 <h2>Where the data goes</h2>
 
-<p>
-  Google data is fetched on demand, used to answer the request in front of it,
-  and not retained beyond what that requires.
-</p>
-
 <ul>
   <li>
-    <strong>On the user's computer.</strong> Conversation history and the
-    assistant's notes are stored in a local database and local files. Nothing is
-    uploaded to a server operated by this application, because there is no such
-    server.
+    <strong>His computer.</strong> Google is read from his own computer, which
+    holds the only Google credentials. What it reads may be kept there in the
+    conversation history and the assistant's notes, in a local database and
+    local files.
   </li>
   <li>
-    <strong>To language model providers.</strong> To answer a question about an
+    <strong>His relay server.</strong> A small server he runs on Fly.io carries
+    his messages and calls while the computer is asleep. It holds no Google
+    credentials and cannot read Google. It does receive what the computer sends
+    him &mdash; replies, reminders, briefings that mention his mail or calendar,
+    requests for his approval &mdash; and keeps a copy of the assistant's notes
+    so it can answer from them.
+  </li>
+  <li>
+    <strong>Language model providers.</strong> To answer a question about an
     email or a calendar entry, the relevant text is sent to the model that
-    produces the reply: OpenAI for conversation, and Z.ai via OpenRouter for
-    programming tasks. Only the content needed for that request is sent.
-    Providers are configured to zero-data-retention and no-training endpoints
-    where the provider offers them.
+    writes the reply: OpenAI for conversation, and models reached through
+    OpenRouter (Z.ai's GLM, and Typesafe's Jev for small decisions). Only the
+    content that request needs is sent. OpenAI requests are sent with storage
+    turned off, and OpenAI does not train on API data; OpenRouter requests are
+    restricted to zero-data-retention endpoints that do not train on it.
+  </li>
+  <li>
+    <strong>Messaging and phone.</strong> Replies reach him over Signal, which is
+    end-to-end encrypted. Phone calls run over Telnyx's phone network.
+  </li>
+  <li>
+    <strong>Web search.</strong> When the assistant searches the web, its search
+    terms go to Brave Search.
   </li>
   <li>
     <strong>Nowhere else.</strong> Google data is not sold, shared, used for
@@ -101,14 +117,16 @@
 
 <h2>Speech</h2>
 <p>
-  Speech recognition and speech synthesis run locally on the user's own machine.
-  Audio is not uploaded anywhere.
+  At his desk, speech recognition and synthesis run on his own computer. A voice
+  note sent by message is transcribed by OpenAI, and a phone call is carried by
+  Telnyx and spoken by OpenAI's realtime voice model, with storage turned off.
 </p>
 
 <h2>Retention and deletion</h2>
 <p>
-  Local conversation history and notes persist until the user deletes them, which
-  they can do by removing the application's data directory. Access to the Google
+  Conversation history and notes persist until he deletes them, on the computer
+  or the relay. OpenAI may keep requests for up to 30 days to monitor abuse, as
+  its API terms describe. Access to the Google
   account can be revoked at any time from
   <a href="https://myaccount.google.com/permissions">Google Account permissions</a>,
   which immediately and permanently ends this application's access. Stored
